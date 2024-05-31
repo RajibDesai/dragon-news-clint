@@ -4,8 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
-
-
+import PageTitle from '../../Paiges/Home/Home/PageTitle/PageTitle';
 
 const Login = () => {
     const [error,setError] = useState('');
@@ -44,10 +43,10 @@ const Login = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
+            <PageTitle title="Login-Page"/>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control name="email" type="email" placeholder="Enter email" required />
-
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">

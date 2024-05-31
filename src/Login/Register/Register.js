@@ -4,13 +4,12 @@ import Form from 'react-bootstrap/Form';
 import { AuthContex } from '../../context/AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
+import PageTitle from '../../Paiges/Home/Home/PageTitle/PageTitle';
 
 const Register = () => {
-
     const [error, setError] = useState('');
-    const [accepted,setAccepted] = useState(false);
-    const { createUser,updateUserProfile,verifyEmail } = useContext(AuthContex);
+    const [accepted, setAccepted] = useState(false);
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContex);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -27,9 +26,9 @@ const Register = () => {
                 console.log(user);
                 setError('');
                 form.reset();
-                handleUpdateUserProfile(name,photoURL)
-                 handleEmailVarification();
-                 toast.success("please verify your email address")
+                handleUpdateUserProfile(name, photoURL)
+                handleEmailVarification();
+                toast.success("please verify your email address")
             })
             .catch(e => {
                 console.error(e)
@@ -37,29 +36,30 @@ const Register = () => {
             });
     }
 
-    const handleUpdateUserProfile = (name,photoURL) =>{
+    const handleUpdateUserProfile = (name, photoURL) => {
         const profile = {
-            displayName:name,
-            photoURL:photoURL
+            displayName: name,
+            photoURL: photoURL
         }
         updateUserProfile(profile)
-        .then( () =>{})
-        .catch(error =>console.error(error))
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
-    const handleEmailVarification = () =>{
+    const handleEmailVarification = () => {
         verifyEmail()
-        .then( ()=> {})
-        .catch(error => console.error(error))
-        
+            .then(() => { })
+            .catch(error => console.error(error))
+
     }
 
-    const handleAccepted = event =>{
+    const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
 
     return (
         <Form onSubmit={handleSubmit}>
+            <PageTitle title="Register-Page"/>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control name="name" type="text" placeholder="Your Name" />

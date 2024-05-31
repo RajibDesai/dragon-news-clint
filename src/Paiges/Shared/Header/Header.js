@@ -12,6 +12,8 @@ import Button from 'react-bootstrap/Button';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContex);
+    console.log(user);
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -20,6 +22,7 @@ const Header = () => {
     }
 
     return (
+        <>
         <Navbar collapseOnSelect expand="lg" bg="light" data-bs-theme="light" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand><Link to='/'>Dragon News</Link></Navbar.Brand>
@@ -41,8 +44,8 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                           <>
-                           {
+                        <>
+                            {
                                 user?.uid ?
                                     <>
                                         <span>{user?.displayName}</span>
@@ -54,12 +57,12 @@ const Header = () => {
                                         <Link to='/register'>Register</Link>
                                     </>
                             }
-                           </>
+                        </>
 
                         <Link to="/profile">
                             {user?.photoURL ?
                                 <Image
-                                    style={{ height: '30px' }}
+                                    style={{ height: '35px' }}
                                     roundedCircle
                                     src={user?.photoURL}>
                                 </Image>
@@ -73,6 +76,7 @@ const Header = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        </>
 
     );
 };

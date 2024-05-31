@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { FaGoogle, FaGithub,FaFacebook,FaWhatsapp,FaTwitch,FaTwitter,FaInstagram } from "react-icons/fa6";
+import { FaGoogle, FaGithub,FaFacebook,FaWhatsapp,FaTwitch,FaTwitter,
+    FaInstagram } from "react-icons/fa6";
 import ListGroup from 'react-bootstrap/ListGroup';
 import BrandCarosel from '../BrandCarosel/BrandCarosel';
 import { AuthContex } from '../../../context/AuthProvider/AuthProvider';
